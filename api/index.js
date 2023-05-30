@@ -6,7 +6,7 @@ const express = require('express');
 const app = express()
 
 const route = express.Router()
-
+app.use(express.json());
 route.get('/', (req, res) => {
     return res.json({
         success: true,
