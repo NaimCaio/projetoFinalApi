@@ -14,6 +14,20 @@ exports.createNewUser =  async function (usuario, senha) {
     resp = usersData.insertUser(usuario, senha)
     return resp;
 }
+exports.autenticarUsuario =  async function (usuario, senha) {
+    usuariobase = await usersData.getUser(usuario);
+    if(usuariobase[0] ==undefined){
+        throw new Error('Usuario não existe');
+ 
+    }if(usuariobase[0].senha !=senha){
+        throw new Error('senha incorreta');
+ 
+    }
+    return {
+        usuario:usuario,
+        senha:senha
+    };
+}
 exports.updateUser = async function (usuario, senha){
     //checar se usuario existe
     usuariobase = await usersData.getUser(usuario);

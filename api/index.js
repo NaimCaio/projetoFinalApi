@@ -41,6 +41,17 @@ route.post('/users',async function (req, res){
     
 })
 
+route.post('/auth',async function (req, res){
+    try {
+        const userCriado = await usersService.autenticarUsuario(req.body.usuario, req.body.senha);
+        res.json(userCriado);
+    } catch (error) {
+        res.status(500).send(error.toString())
+    }
+    
+    
+})
+
 route.put('/users/',async function (req, res){
     try {
         const usuarioAtualizxado= await usersService.updateUser(req.body.usuario, req.body.senha);
