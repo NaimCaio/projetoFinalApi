@@ -23,10 +23,7 @@ exports.autenticarUsuario =  async function (usuario, senha) {
         throw new Error('senha incorreta');
  
     }
-    return {
-        usuario:usuario,
-        senha:senha
-    };
+    return usuariobase;
 }
 exports.updateUser = async function (usuario, senha){
     //checar se usuario existe
