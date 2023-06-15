@@ -33,3 +33,11 @@ exports.updateUser = async function (usuario, senha){
     }
     return usersData.updateUser(usuario,senha)
 }
+exports.deleteUser = async function (usuarioId){
+    //checar se usuario existe
+    usuariobase = await usersData.getUserById(usuarioId);
+    if(usuariobase[0] ==undefined){
+        throw new Error('Usuário não encontrado')
+    }
+    return usersData.deleteUser(usuarioId)
+}

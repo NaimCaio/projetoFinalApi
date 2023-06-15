@@ -61,7 +61,12 @@ route.put('/users/',async function (req, res){
     }
 })
 route.delete('/users/:id',async function (req, res){
-    
+    try {
+        const usuarioDeletado = await usersService.deleteUser(req.params.id);
+        res.json(req.params.id);
+    } catch (error) {
+        res.status(500).send(error.toString())
+    }
 })
 
 route.get('/notas',async function (req, res){
