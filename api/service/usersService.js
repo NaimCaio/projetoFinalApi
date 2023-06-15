@@ -1,4 +1,5 @@
 const usersData = require('../data/usersData');
+const notasData = require('../data/notasData');
 
 exports.getUsers = function () {
     return usersData.getUsers();
@@ -39,5 +40,6 @@ exports.deleteUser = async function (usuarioId){
     if(usuariobase[0] ==undefined){
         throw new Error('Usuário não encontrado')
     }
+    const notas= await notasData.deleteNotas(usuarioId)
     return usersData.deleteUser(usuarioId)
 }

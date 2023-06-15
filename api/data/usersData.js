@@ -23,7 +23,6 @@ exports.updateUser= function(usuario,senha){
     return database.query(query);
 }
 exports.deleteUser= function(usuarioId){
-
     const query = `delete from projetoFinal.usuarios  WHERE id=${usuarioId};`;
     return database.query(query);
 }

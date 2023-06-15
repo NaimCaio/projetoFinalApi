@@ -34,3 +34,7 @@ exports.deleteNota= function(notaId){
     const query = `delete from projetoFinal.notas  WHERE id=${notaId};`;
     return database.query(query);
 }
+exports.deleteNotas = function (usuarioId){
+    const query = `delete from projetoFinal.notas  WHERE usuario_id=${usuarioId};`;
+    return database.query(query);
+}
